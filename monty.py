@@ -30,7 +30,7 @@ Program made by Eren Sulutas
 import random
 
 #change_door = True
-trials = 1000
+trials = 10000
 wins_no_change, wins_change = 0, 0 
 
 for i in range(trials):
