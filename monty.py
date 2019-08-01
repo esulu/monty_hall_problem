@@ -63,4 +63,4 @@ for i in range(trials):
     if selection == "money":
             wins +=1         
 
-print("\nResults:\nCorrect door chosen: {}\nNumber of trials: {}\n".format(wins, trials))
+print("\nResults:\nCorrect door chosen: {}\nNumber of trials: {}\nPercentage correct: %{}\n".format(wins, trials, (wins/trials) * 100.0 ))
