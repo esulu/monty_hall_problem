@@ -29,9 +29,9 @@ Program made by Eren Sulutas
 
 import random
 
-change_door = True
-trials = 10
-wins = 0
+#change_door = True
+trials = 1000
+wins_no_change, wins_change = 0, 0 
 
 for i in range(trials):
     # Makes a list of goats 
@@ -43,24 +43,27 @@ for i in range(trials):
     selection_index = random.randint(0,2)
     selection = door[selection_index]
 
-    if change_door:
-        if selection_index == 0:
-            if door[1] == "goat":
-                selection = door[2]
-            else:
-                selection = door[1]
-        elif selection_index == 1:
-            if door[0] == "goat":
-                selection = door[2]
-            else:
-                selection = door[0]
+    if selection_index == 0:
+        if door[1] == "goat":
+            selection_change = door[2]
         else:
-            if door[0] == "goat":
-                selection = door[1]
-            else:
-                selection = door[0]
+            selection_change = door[1]
+    elif selection_index == 1:
+        if door[0] == "goat":
+            selection_change = door[2]
+        else:
+            selection_change = door[0]
+    else:
+        if door[0] == "goat":
+            selection_change = door[1]
+        else:
+            selection_change = door[0]
 
     if selection == "money":
-            wins +=1         
+        wins_no_change +=1      
 
-print("\nResults:\nCorrect door chosen: {}\nNumber of trials: {}\nPercentage correct: %{}\n".format(wins, trials, (wins/trials) * 100.0 ))
+    if selection_change == "money": 
+        wins_change += 1   
+
+print("\n--- Keep Original Door ---\nCorrect door chosen: {}\nNumber of trials: {}\nPercentage correct: %{}\n".format(wins_no_change, trials, (wins_no_change/trials) * 100.0 ))
+print("\n--- Change Door ---\nCorrect door chosen: {}\nNumber of trials: {}\nPercentage correct: %{}\n".format(wins_change, trials, (wins_change/trials) * 100.0 ))
