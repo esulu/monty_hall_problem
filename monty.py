@@ -40,9 +40,27 @@ for i in range(trials):
     # One door at random will contain money
     door[random.randint(0,2)] = "money"
 
-    selection = door[random.randint(0,2)]
+    selection_index = random.randint(0,2)
+    selection = door[selection_index]
 
-    if selection == "money":
-        wins +=1 
+    if change_door:
+        if selection_index == 0:
+            if door[1] == "goat":
+                selection = door[2]
+            else:
+                selection = door[1]
+        elif selection_index == 1:
+            if door[0] == "goat":
+                selection = door[2]
+            else:
+                selection = door[0]
+        else:
+            if door[0] == "goat":
+                selection = door[1]
+            else:
+                selection = door[0]
+    else:
+        if selection == "money":
+            wins +=1 
 
 print("\nResults:\nCorrect door chosen: {}\nNumber of trials: {}\n".format(wins, trials))
