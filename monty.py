@@ -29,9 +29,20 @@ Program made by Eren Sulutas
 
 import random
 
-for i in range(1):
-    doors = ["goat", "goat", "goat"]
+change_door = False
+trials = 1
+wins = 0
 
-    doors[random.randint(0,2)] = "money"
+for i in range(trials):
+    # Makes a list of goats 
+    door = ["goat"] * 3
 
-    print(doors)
+    # One door at random will contain money
+    door[random.randint(0,2)] = "money"
+
+    selection = door[random.randint(0,2)]
+
+    if selection == "money":
+        wins +=1 
+
+print("\nResults:\nCorrect door chosen: {}\nNumber of trials: {}\n".format(wins, trials))
