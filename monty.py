@@ -26,3 +26,12 @@ The purpose of this program is to test the theory as to whether or not it stands
 Program made by Eren Sulutas
 
 '''
+
+import random
+
+for i in range(1):
+    doors = ["goat", "goat", "goat"]
+
+    doors[random.randint(0,2)] = "money"
+
+    print(doors)
