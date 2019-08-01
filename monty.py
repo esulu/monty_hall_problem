@@ -29,8 +29,8 @@ Program made by Eren Sulutas
 
 import random
 
-change_door = False
-trials = 1
+change_door = True
+trials = 10
 wins = 0
 
 for i in range(trials):
@@ -59,8 +59,8 @@ for i in range(trials):
                 selection = door[1]
             else:
                 selection = door[0]
-    else:
-        if selection == "money":
-            wins +=1 
+
+    if selection == "money":
+            wins +=1         
 
 print("\nResults:\nCorrect door chosen: {}\nNumber of trials: {}\n".format(wins, trials))
